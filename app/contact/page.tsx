@@ -76,7 +76,7 @@ export default function Contact() {
         <div className="card">
           <h3 className="text-lg font-semibold text-[var(--primary)] mb-2">LinkedIn</h3>
           <a
-            href="https://linkedin.com/in/idyvalour"
+            href="https://www.linkedin.com/in/idongesit/"
             target="_blank"
             rel="noopener noreferrer"
             className="text-[var(--text-secondary)] hover:text-[var(--primary)] transition-colors"
