@@ -9,6 +9,9 @@ html {
 body {
   background-color: #000;
 }
+h1, h2, h3 {
+  letter-spacing: -0.02em;
+}
 
 :root {
   --neon: #39ff14; /* bright neon green */
