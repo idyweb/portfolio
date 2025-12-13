@@ -9,7 +9,7 @@ export default function Navbar() {
           href="/"
           className="text-xl font-bold text-gradient hover:opacity-80 transition-opacity"
         >
-          Idongesit.dev
+          Idyvalour.space
         </Link>
 
         {/* Navigation Links */}

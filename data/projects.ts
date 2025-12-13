@@ -54,7 +54,8 @@ export const projects = [
       "Groq LLM integration",
       "Async FastAPI"
     ],
-    stack: ["FastAPI", "Groq LLM", "CoinGecko", "Pytest"]
+    stack: ["FastAPI", "Groq LLM", "CoinGecko", "Pytest"],
+    liveUrl: "https://github.com/idyweb/Agent-to-Agent-Token-Price-Service-"
   },
   {
     slug: "image-similarity",
@@ -89,7 +90,8 @@ export const projects = [
       "Google OAuth",
       "Uvicorn"
     ],
-    repo: "https://github.com/idyweb/Wallet_Service_with_Paystack"
+    repo: "https://github.com/idyweb/Wallet_Service_with_Paystack",
+    liveUrl: "https://github.com/idyweb/Wallet_Service_with_Paystack"
   },
   {
     slug: "image-upload-service",
@@ -102,7 +104,8 @@ export const projects = [
       "Status tracking and result retrieval endpoints"
     ],
     stack: ["FastAPI", "Celery", "Redis", "PostgreSQL", "Google Cloud Storage", "Pillow"],
-    repo: "https://github.com/idyweb/image-upload-service"
+    repo: "https://github.com/idyweb/image-upload-service",
+    liveUrl: "https://github.com/idyweb/image-upload-service"
   },
   {
     slug: "agent-token-price-service",
