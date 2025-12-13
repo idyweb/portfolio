@@ -9,3 +9,20 @@ html {
 body {
   background-color: #000;
 }
+
+:root {
+  --neon: #39ff14; /* bright neon green */
+  --neon-accent: #00e5ff; /* cyan accent */
+  --neon-muted: #66ff88; /* softer neon for muted text */
+  --neon-glow: 0 0 8px rgba(57,255,20,0.15), 0 0 24px rgba(0,229,255,0.06);
+}
+
+/* Utility classes for neon theme */
+.text-neon { color: var(--neon); }
+.text-neon-accent { color: var(--neon-accent); }
+.text-neon-muted { color: #9bdcad; }
+.neon-glow { text-shadow: var(--neon-glow); }
+
+/* Make form controls and links slightly brighter on dark background */
+a { color: inherit; }
+
