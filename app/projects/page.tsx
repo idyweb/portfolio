@@ -7,32 +7,32 @@ export default function Projects() {
     <section className="space-y-12">
       {/* Header */}
       <div className="space-y-4">
-        <p className="text-[var(--primary)] font-semibold text-lg">Portfolio</p>
-        <h1 className="section-title">Featured Projects</h1>
-        <p className="text-xl text-[var(--text-secondary)] max-w-3xl">
-          Here are some of my recent projects. Each showcases different aspects of my expertise in backend development, machine learning, and cloud infrastructure.
+        <p className="text-sm text-muted-sm">Portfolio</p>
+        <h1 className="text-gradient text-4xl font-bold">Featured Projects</h1>
+        <p className="text-[var(--muted)] max-w-2xl">
+          Highlights of work across backend systems, ML pipelines, and cloud infrastructure.
         </p>
       </div>
 
       {/* Projects Grid */}
-      <div className="grid md:grid-cols-2 gap-8 mt-16">
+      <div className="grid md:grid-cols-2 gap-8">
         {projects.map((project) => (
           <ProjectCard key={project.slug} project={project} />
         ))}
       </div>
 
       {/* CTA */}
-      <div className="mt-20 pt-12 border-t border-[var(--border-color)] text-center">
-        <p className="text-[var(--text-secondary)] mb-6">
-          Want to see more? Check out my GitHub for additional projects and contributions.
+      <div className="text-center pt-12">
+        <p className="text-[var(--muted)] mb-6">
+          Interested in more? Explore my full work on GitHub.
         </p>
         <a
-          href="https://github.com/idyvalour"
+          href="https://github.com/idyweb"
           target="_blank"
           rel="noopener noreferrer"
-          className="btn-primary inline-block"
+          className="inline-block"
         >
-          Visit GitHub
+          <button className="btn-neo">View GitHub Profile</button>
         </a>
       </div>
     </section>

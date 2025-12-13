@@ -64,12 +64,12 @@ export default function Contact() {
         <div className="card">
           <h3 className="text-lg font-semibold text-[var(--primary)] mb-2">GitHub</h3>
           <a
-            href="https://github.com/idyvalour"
+            href="https://github.com/idyweb"
             target="_blank"
             rel="noopener noreferrer"
             className="text-[var(--text-secondary)] hover:text-[var(--primary)] transition-colors"
           >
-            @idyvalour
+            @idyweb
           </a>
         </div>
 
@@ -173,7 +173,7 @@ export default function Contact() {
           Back to Projects
         </Link>
         <a
-          href="https://github.com/idyvalour"
+          href="https://github.com/idyweb"
           target="_blank"
           rel="noopener noreferrer"
           className="btn-tertiary"
