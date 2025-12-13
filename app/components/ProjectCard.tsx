@@ -6,27 +6,53 @@ import { motion } from "framer-motion";
 export default function ProjectCard({ project }: any) {
   return (
     <motion.div
-      whileHover={{ y: -6 }}
+      whileHover={{ y: -8 }}
       transition={{ duration: 0.3 }}
     >
-      <Link
-        href={`/projects/${project.slug}`}
-        className="block border border-white/10 rounded-lg p-6 hover:border-white/30 transition"
-      >
-        <h3 className="text-xl font-semibold">{project.title}</h3>
-        <p className="text-gray-400 mt-2">{project.description}</p>
+      <Link href={`/projects/${project.slug}`}>
+        <div className="card-neo cursor-pointer group h-full flex flex-col">
+          {/* Header */}
+          <div className="mb-4">
+            <h3 className="text-2xl font-bold text-gradient">
+              {project.title}
+            </h3>
+          </div>
 
-        <div className="flex flex-wrap gap-2 mt-4 text-xs text-gray-300">
-          {project.stack.map((tech: string) => (
-            <span
-              key={tech}
-              className="border border-white/10 px-2 py-1 rounded"
-            >
-              {tech}
-            </span>
-          ))}
+          {/* Description */}
+          <p className="text-[var(--muted)] flex-grow mb-4">
+            {project.description}
+          </p>
+
+          {/* Metrics */}
+          <div className="mb-6 space-y-2">
+            {project.metrics.map((metric: string, i: number) => (
+              <p key={i} className="text-sm text-[var(--muted)] flex items-start gap-3">
+                <span className="text-[var(--neo-2)] font-bold">▸</span>
+                <span>{metric}</span>
+              </p>
+            ))}
+          </div>
+
+          {/* Tech Stack */}
+          <div className="flex flex-wrap gap-2 mt-auto">
+            {project.stack.map((tech: string) => (
+              <span
+                key={tech}
+                className="text-xs px-3 py-1 bg-[rgba(0,245,255,0.06)] text-[var(--neo-1)] rounded-full border border-[rgba(0,245,255,0.12)]"
+              >
+                {tech}
+              </span>
+            ))}
+          </div>
+
+          {/* Arrow indicator */}
+          <div className="mt-6 flex items-center text-[var(--neo-1)] font-semibold group-hover:gap-2 transition-all">
+            View Project
+            <span className="ml-2 opacity-0 group-hover:opacity-100 transition-opacity">→</span>
+          </div>
         </div>
       </Link>
     </motion.div>
   );
 }
+

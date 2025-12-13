@@ -1,31 +1,146 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+/* Neo-futuristic global styles */
 
-html {
-  scroll-behavior: smooth;
+:root{
+  --neo-1: #00f5ff; /* cyan */
+  --neo-2: #8a2be2; /* electric violet */
+  --neo-3: #ff39b5; /* magenta */
+  --bg-1: rgba(6,10,25,0.9);
+  --glass: rgba(255,255,255,0.03);
+  --glass-border: rgba(255,255,255,0.06);
+  --muted: #9fb0c8;
+  /* legacy mappings for existing components */
+  --primary: var(--neo-1);
+  --primary-dark: var(--neo-2);
+  --primary-light: var(--neo-3);
+  --border-color: rgba(255,255,255,0.06);
+  --bg-primary: var(--bg-1);
 }
 
-body {
-  background-color: #000;
-}
-h1, h2, h3 {
-  letter-spacing: -0.02em;
-}
+html{scroll-behavior:smooth}
 
-:root {
-  --neon: #39ff14; /* bright neon green */
-  --neon-accent: #00e5ff; /* cyan accent */
-  --neon-muted: #66ff88; /* softer neon for muted text */
-  --neon-glow: 0 0 8px rgba(57,255,20,0.15), 0 0 24px rgba(0,229,255,0.06);
+body{
+  background: radial-gradient(1200px 400px at 10% 10%, rgba(138,43,226,0.08), transparent),
+              radial-gradient(800px 300px at 90% 90%, rgba(0,245,255,0.06), transparent),
+              var(--bg-1);
+  color: #e6eef8;
+  font-family: 'Orbitron', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
 }
 
-/* Utility classes for neon theme */
-.text-neon { color: var(--neon); }
-.text-neon-accent { color: var(--neon-accent); }
-.text-neon-muted { color: #9bdcad; }
-.neon-glow { text-shadow: var(--neon-glow); }
+/* animated gradient background element (use as separate layer) */
+@keyframes neoGradient {
+  0%{background-position:0% 50%}
+  50%{background-position:100% 50%}
+  100%{background-position:0% 50%}
+}
 
-/* Make form controls and links slightly brighter on dark background */
-a { color: inherit; }
+.neo-bg{
+  background: linear-gradient(90deg, var(--neo-1), var(--neo-2), var(--neo-3));
+  background-size: 300% 300%;
+  animation: neoGradient 12s linear infinite;
+  opacity: .13;
+  filter: blur(60px);
+}
 
+/* small text gradient utility */
+.text-gradient{background:linear-gradient(90deg,var(--neo-1),var(--neo-2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+
+/* glassmorphism container */
+.glass{
+  background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+  border: 1px solid var(--glass-border);
+  backdrop-filter: blur(8px) saturate(120%);
+  -webkit-backdrop-filter: blur(8px) saturate(120%);
+  border-radius: 12px;
+}
+
+.glass-strong{
+  background: linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.02));
+  border: 1px solid rgba(138,43,226,0.14);
+}
+
+/* neon text/glow */
+.neon{color:var(--neo-1);text-shadow:0 0 8px rgba(0,245,255,0.14),0 0 24px rgba(138,43,226,0.06)}
+.neon-strong{color:var(--neo-3);text-shadow:0 0 10px rgba(255,57,181,0.12),0 0 30px rgba(138,43,226,0.08)}
+
+.text-muted{color:var(--muted)}
+
+/* buttons */
+.btn-neo{
+  padding:0.7rem 1.4rem;border-radius:10px;font-weight:700;border:none;cursor:pointer;
+  background:linear-gradient(90deg,var(--neo-1),var(--neo-2));color:#021124;box-shadow:0 6px 18px rgba(138,43,226,0.12);
+}
+.btn-neo-outline{padding:0.7rem 1.2rem;border-radius:10px;border:1px solid rgba(255,255,255,0.06);color:var(--neo-1);background:transparent}
+
+/* cards */
+.card-neo{padding:1.4rem;border-radius:14px;border:1px solid rgba(255,255,255,0.04);background:linear-gradient(180deg, rgba(255,255,255,0.015), rgba(255,255,255,0.01));}
+.card-neo:hover{transform:translateY(-6px);box-shadow:0 20px 50px rgba(138,43,226,0.08);transition:all .28s}
+
+/* utility */
+.subtle{opacity:.9}
+.muted-sm{color:var(--muted);font-size:.95rem}
+
+/* reduced motion */
+@media (prefers-reduced-motion: reduce){
+  .neo-bg{animation:none;filter:none}
+  .card-neo{transition:none}
+}
+
+/* responsive headings */
+h1{font-size:2.6rem;margin:0}
+h2{font-size:1.8rem}
+@media(min-width:768px){h1{font-size:4rem}h2{font-size:2.6rem}}
+
+
+
+
+
+.btn-tertiary {
+  padding: 0.75rem 1.5rem;
+  border: 1px solid var(--border-color);
+  color: var(--text-secondary);
+  border-radius: 0.5rem;
+  font-weight: 500;
+  transition: all 300ms;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.btn-tertiary:hover {
+  border-color: var(--primary);
+  color: var(--primary);
+}
+
+.card {
+  background-color: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  border-radius: 0.75rem;
+  padding: 1.5rem;
+  transition: all 300ms;
+}
+
+.card:hover {
+  border-color: var(--primary);
+}
+
+.section-title {
+  font-size: 2.25rem;
+  line-height: 1.2;
+  font-weight: 700;
+  background: var(--gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 3rem;
+}
+
+@media (min-width: 768px) {
+  .section-title {
+    font-size: 3rem;
+  }
+}

@@ -1,6 +1,6 @@
 "use client";
 
-import { experience } from "@/data/experience";
+import { experience } from "../../data/experience";
 import { motion } from "framer-motion";
 
 export default function Timeline() {
@@ -12,20 +12,34 @@ export default function Timeline() {
           initial={{ opacity: 0, x: -20 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-          className="border-l border-white/20 pl-6 space-y-2"
+          transition={{ duration: 0.5, delay: index * 0.1 }}
+          className="border-l-2 border-[var(--primary)] pl-8 space-y-3"
         >
-          <h3 className="text-xl font-semibold">
-            {job.role} · {job.company}
-          </h3>
+          {/* Job Title and Company */}
+          <div>
+            <h3 className="text-2xl font-bold text-[var(--primary)]">
+              {job.role}
+            </h3>
+            <p className="text-lg text-[var(--text-primary)] font-semibold mt-1">
+              {job.company}
+            </p>
+          </div>
 
-          <p className="text-sm text-gray-400">
-            {job.location} · {job.period}
+          {/* Location and Period */}
+          <p className="text-sm text-[var(--text-tertiary)]">
+            {job.location} • {job.period}
           </p>
 
-          <ul className="list-disc list-inside text-gray-300 space-y-1">
+          {/* Highlights */}
+          <ul className="space-y-2 mt-4">
             {job.highlights.map((point, i) => (
-              <li key={i}>{point}</li>
+              <li
+                key={i}
+                className="text-[var(--text-secondary)] flex gap-3 text-sm leading-relaxed"
+              >
+                <span className="text-[var(--primary)] font-bold mt-1">▸</span>
+                <span>{point}</span>
+              </li>
             ))}
           </ul>
         </motion.div>
