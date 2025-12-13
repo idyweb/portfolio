@@ -1,5 +1,18 @@
 export const experience = [
   {
+    company: "Mum Mentor AI (Nora)",
+    role: "Backend Engineer / Contributor",
+    location: "Remote",
+    period: "Nov 2025 – Present",
+    highlights: [
+      "Contributed core backend features and integrations for Nora (Mum Mentor AI), a conversational companion for new mothers.",
+      "Implemented and maintained the async notification system using Celery with RabbitMQ and Redis, improving background task reliability and throughput.",
+      "Built and enhanced AI-related backend components (memory extraction, AI personality layers), and added real-time voice chat WebSocket endpoints for live audio sessions.",
+      "Integrated OAuth providers (Apple/Google), profile image handling, multi-image upload endpoints, and robust API input validation using Pydantic.",
+      "Authored tests and performed codebase refactors to improve maintainability; collaborated on Alembic migrations and production deployment workflows."
+    ]
+  },
+  {
     company: "Pedana Global",
     role: "Machine Learning Engineer",
     location: "Nigeria (Remote)",

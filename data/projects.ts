@@ -1,5 +1,29 @@
 export const projects = [
   {
+    slug: "nora-backend",
+    title: "Nora (Mum Mentor AI) — Backend",
+    description:
+      "Backend platform for Nora — an empathetic conversational companion for new mothers; supports AI memory, notifications, real-time voice, and OAuth integrations.",
+    metrics: [
+      "Production-ready Celery notification system (RabbitMQ + Redis)",
+      "Real-time voice chat WebSocket endpoint",
+      "AI memory extraction and personality features"
+    ],
+    stack: [
+      "FastAPI",
+      "Celery",
+      "RabbitMQ",
+      "Redis",
+      "SQLAlchemy",
+      "PostgreSQL",
+      "Alembic",
+      "WebSockets",
+      "Pytest",
+      "OpenAI Whisper"
+    ],
+    repo: "https://github.com/emerjent/nora-be"
+  },
+  {
     slug: "building-detection",
     title: "Building Detection System",
     description:
