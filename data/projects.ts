@@ -21,7 +21,8 @@ export const projects = [
       "Pytest",
       "OpenAI Whisper"
     ],
-    repo: "https://github.com/emerjent/nora-be"
+    repo: "https://github.com/emerjent/nora-be",
+    liveUrl: "https://noramum.app"
   },
   {
     slug: "building-detection",
@@ -40,7 +41,8 @@ export const projects = [
       "Redis",
       "GDAL",
       "GCP"
-    ]
+    ],
+    liveUrl: "https://usefieldwatch.com/"
   },
   {
     slug: "crypto-agent",

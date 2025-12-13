@@ -4,12 +4,16 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 
 export default function ProjectCard({ project }: any) {
+  // Use liveUrl if available, otherwise fall back to project detail page
+  const href = project.liveUrl || `/projects/${project.slug}`;
+  const isExternal = !!project.liveUrl;
+
   return (
     <motion.div
       whileHover={{ y: -8 }}
       transition={{ duration: 0.3 }}
     >
-      <Link href={`/projects/${project.slug}`}>
+      <Link href={href} target={isExternal ? "_blank" : undefined} rel={isExternal ? "noopener noreferrer" : undefined}>
         <div className="card-neo cursor-pointer group h-full flex flex-col">
           {/* Header */}
           <div className="mb-4">
@@ -45,11 +49,13 @@ export default function ProjectCard({ project }: any) {
             ))}
           </div>
 
-          {/* Arrow indicator */}
-          <div className="mt-6 flex items-center text-[var(--neo-1)] font-semibold group-hover:gap-2 transition-all">
-            View Project
-            <span className="ml-2 opacity-0 group-hover:opacity-100 transition-opacity">→</span>
-          </div>
+          {/* Arrow indicator - only show if there's a valid link */}
+          {(project.liveUrl || project.slug) && (
+            <div className="mt-6 flex items-center text-[var(--neo-1)] font-semibold group-hover:gap-2 transition-all">
+              {project.liveUrl ? "View Live" : "View Project"}
+              <span className="ml-2 opacity-0 group-hover:opacity-100 transition-opacity">→</span>
+            </div>
+          )}
         </div>
       </Link>
     </motion.div>
