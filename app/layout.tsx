@@ -21,7 +21,7 @@ export default function RootLayout({
         <div className="neo-bg fixed inset-0 -z-10" aria-hidden="true" />
         <Navbar />
         <main className="flex-grow">
-          <div className="max-w-6xl mx-auto px-6 sm:px-8 py-16 sm:py-20">
+          <div className="max-w-6xl mx-auto px-6 sm:px-8 pt-24 pb-16 sm:pt-28 sm:pb-20">
             {children}
           </div>
         </main>
