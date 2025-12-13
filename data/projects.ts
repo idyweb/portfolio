@@ -66,4 +66,53 @@ export const projects = [
     ],
     stack: ["FastAPI", "CLIP", "MongoDB"]
   }
+  ,
+  {
+    slug: "wallet-paystack",
+    title: "Wallet Service (Paystack)",
+    description:
+      "Backend wallet service with Paystack integration, JWT + Google OAuth authentication, API-key access, and idempotent webhook handling.",
+    metrics: [
+      "Paystack deposit + webhook verification",
+      "API key system with permission scopes and expiry",
+      "Atomic wallet-to-wallet transfers and transaction history"
+    ],
+    stack: [
+      "FastAPI",
+      "PostgreSQL",
+      "SQLAlchemy",
+      "Alembic",
+      "Paystack",
+      "JWT",
+      "Google OAuth",
+      "Uvicorn"
+    ],
+    repo: "https://github.com/idyweb/Wallet_Service_with_Paystack"
+  },
+  {
+    slug: "image-upload-service",
+    title: "Image Upload Service",
+    description:
+      "Asynchronous image upload and processing service with background workers (resize, compress, thumbnails) and status endpoints.",
+    metrics: [
+      "Background processing with Celery",
+      "Support for local + GCS storage",
+      "Status tracking and result retrieval endpoints"
+    ],
+    stack: ["FastAPI", "Celery", "Redis", "PostgreSQL", "Google Cloud Storage", "Pillow"],
+    repo: "https://github.com/idyweb/image-upload-service"
+  },
+  {
+    slug: "agent-token-price-service",
+    title: "Agent-to-Agent Token Price Service",
+    description:
+      "A2A protocol-compliant cryptocurrency price agent providing real-time pricing and natural language responses using CoinGecko and Groq LLM.",
+    metrics: [
+      "Real-time prices for 100+ cryptocurrencies",
+      "Groq LLM (Llama 3.3) integration for NLU",
+      "A2A / JSON-RPC 2.0 compatibility"
+    ],
+    stack: ["FastAPI", "CoinGecko API", "Groq LLM", "Python", "JSON-RPC"],
+    repo: "https://github.com/idyweb/Agent-to-Agent-Token-Price-Service-"
+  }
 ];
