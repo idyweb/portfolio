@@ -13,7 +13,7 @@ export default function Navbar() {
         </Link>
 
         {/* Navigation Links */}
-        <div className="flex items-center gap-3 md:gap-6 lg:gap-8">
+        <div className="flex items-center gap-4">
           <Link
             href="/"
             className="px-3 py-2 text-[var(--muted)] hover:text-[var(--neo-1)] transition-colors rounded-lg hover:bg-[rgba(0,245,255,0.06)]"
