@@ -49,10 +49,10 @@ export default function Contact() {
         <div className="card">
           <h3 className="text-lg font-semibold text-[var(--primary)] mb-2">Email</h3>
           <a
-            href="mailto:hello@idyvalour.space"
+            href="mailto:inyangidongesit22@gmail.com"
             className="text-[var(--text-secondary)] hover:text-[var(--primary)] transition-colors"
           >
-            hello@idyvalour.space
+            inyangidongesit22@gmail.com
           </a>
         </div>
 

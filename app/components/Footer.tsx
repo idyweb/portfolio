@@ -8,7 +8,7 @@ export default function Footer() {
   const socialLinks = [
     { name: "GitHub", url: "https://github.com/idyweb", icon: "GH" },
     { name: "LinkedIn", url: "https://www.linkedin.com/in/idongesit/", icon: "LI" },
-    { name: "Email", url: "mailto:hello@idyvalour.space", icon: "✉" },
+    { name: "Email", url: "mailto:inyangidongesit22@gmail.com", icon: "✉" },
   ];
 
   return (
