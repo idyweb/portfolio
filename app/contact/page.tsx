@@ -11,6 +11,8 @@ export default function Contact() {
     message: "",
   });
   const [submitted, setSubmitted] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState<string | null>(null);
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -22,15 +24,34 @@ export default function Contact() {
     }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // In a real app, this would send to an email service
-    console.log("Form submitted:", formData);
-    setSubmitted(true);
-    setTimeout(() => {
+    setLoading(true);
+    setError(null);
+
+    try {
+      const response = await fetch("/api/send-email", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
+
+      if (!response.ok) {
+        const errorData = await response.json();
+        throw new Error(errorData.error || "Failed to send email");
+      }
+
+      setSubmitted(true);
       setFormData({ name: "", email: "", subject: "", message: "" });
-      setSubmitted(false);
-    }, 3000);
+      setTimeout(() => {
+        setSubmitted(false);
+      }, 4000);
+    } catch (err: any) {
+      setError(err.message || "An error occurred while sending your message");
+      console.error("Submit error:", err);
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -91,10 +112,17 @@ export default function Contact() {
         <h2 className="text-3xl font-bold text-[var(--text-primary)] mb-8">Send me a message</h2>
 
         {submitted ? (
-          <div className="bg-[var(--primary)]/10 border border-[var(--primary)] rounded-lg p-6 text-center">
-            <p className="text-[var(--primary)] font-semibold">
-              Thanks for reaching out! I'll get back to you soon.
+          <div className="bg-green-500/10 border border-green-500 rounded-lg p-6 text-center">
+            <p className="text-green-400 font-semibold">
+              ✓ Thanks for reaching out! I'll get back to you soon.
             </p>
+          </div>
+        ) : error ? (
+          <div className="bg-red-500/10 border border-red-500 rounded-lg p-6 text-center mb-6">
+            <p className="text-red-400 font-semibold">
+              ✗ {error}
+            </p>
+            <p className="text-sm text-red-300 mt-2">Please check your internet connection and try again, or email me directly.</p>
           </div>
         ) : (
           <form onSubmit={handleSubmit} className="space-y-6">
@@ -160,8 +188,8 @@ export default function Contact() {
               />
             </div>
 
-            <button type="submit" className="btn-primary w-full md:w-auto">
-              Send Message
+            <button type="submit" className="btn-primary w-full md:w-auto" disabled={loading}>
+              {loading ? "Sending..." : "Send Message"}
             </button>
           </form>
         )}
