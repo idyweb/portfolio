@@ -36,17 +36,17 @@ export default function Home() {
               <div className="w-full lg:w-1/3">
                 <div className="card-neo">
                   <p className="text-sm text-muted-sm">Selected stats</p>
-                  <div className="mt-4 grid grid-cols-3 gap-4 text-center">
+                  <div className="mt-4 grid grid-cols-1 sm:grid-cols-3 gap-4 text-center">
                     <div className="overflow-hidden">
-                      <p className="text-lg font-bold neon">3+</p>
+                      <p className="text-lg md:text-xl font-bold neon">3+</p>
                       <p className="text-xs text-[var(--muted)]">Years</p>
                     </div>
                     <div className="overflow-hidden">
-                      <p className="text-lg font-bold neon">10+</p>
+                      <p className="text-lg md:text-xl font-bold neon">10+</p>
                       <p className="text-xs text-[var(--muted)]">Projects</p>
                     </div>
                     <div className="overflow-hidden">
-                      <p className="text-lg font-bold neon">100%</p>
+                      <p className="text-lg md:text-xl font-bold neon">100%</p>
                       <p className="text-xs text-[var(--muted)] leading-tight">Satisfaction</p>
                     </div>
                   </div>
